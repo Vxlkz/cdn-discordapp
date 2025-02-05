@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+  <link rel="icon" href="data:;base64,="> <!-- Invisible favicon -->
+  <style>
+    /* Set the page to be invisible and dark */
+    body {
+      background-color: black;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: transparent;
+      margin: 0;
+    }
+
+    /* Prevent the page content from showing */
+    * {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <script>
+    // Redirect to the desired URL immediately
+    window.location.replace("https://yourwebsite.com/redirect.html");
+
+    // Block going back in history (This is a workaround and doesn't guarantee complete prevention)
+    window.history.pushState(null, null, window.location.href);
+    window.onpopstate = function() {
+      window.history.go(1);
+    };
+  </script>
+</body>
+</html>
